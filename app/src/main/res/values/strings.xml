@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Google Alarm Clock</string>
+    <string name="alarm">Будильник</string>
+    <string name="clock">Часы</string>
+    <string name="timer">Таймер</string>
+    <string name="stopwatch">Секундомер</string>
+    <string name="sleep_mode">Режим сна</string>
+    <string name="turn_off">Выключить</string>
+    <string name="put_aside">Отложить</string>
+</resources>

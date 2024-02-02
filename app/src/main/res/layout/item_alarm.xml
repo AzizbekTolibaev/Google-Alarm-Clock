@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/background_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="4dp"
+    android:background="@drawable/bg_alarm_item"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:selectableItemBackground"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="8dp">
+
+    <net.cachapa.expandablelayout.ExpandableLayout
+        android:id="@+id/expandable_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:el_expanded="false"
+        app:layout_constraintEnd_toStartOf="@id/layout_expanded_show"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/alarm_description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableStart="@drawable/ic_label"
+            android:drawablePadding="16dp"
+            android:gravity="center_vertical"
+            android:paddingVertical="12dp"
+            android:text="Добавить ярлык"
+            android:textColor="@color/grey_text_color"
+            android:textSize="16sp"
+            app:drawableTint="@color/icon_color" />
+
+    </net.cachapa.expandablelayout.ExpandableLayout>
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:fontFamily="@font/rubik_font"
+        android:foreground="?selectableItemBackground"
+        android:gravity="center"
+        android:selectable="true"
+        android:text="06:30"
+        android:textColor="@color/grey_text_color"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/expandable_description" />
+
+    <LinearLayout
+        android:id="@+id/layout_expanded_show"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="right"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlHardcoded">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_expanded_icon"
+            android:src="@drawable/ic_down"
+            app:tint="@color/icon_color" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_all_dates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_font"
+        android:text="Каждый день"
+        android:textColor="@color/grey_text_color"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/expandable_layout"
+        app:layout_constraintStart_toStartOf="@id/tv_time"
+        app:layout_constraintTop_toBottomOf="@id/tv_time" />
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/date_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:checked="false"
+        app:layout_constraintBottom_toBottomOf="@id/tv_all_dates"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_all_dates"
+        app:thumbTint="#C3E6FE"
+        app:trackTint="#454746" />
+
+    <net.cachapa.expandablelayout.ExpandableLayout
+        android:id="@+id/expandable_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:el_expanded="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/date_switch">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dates_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="8dp"
+                app:layout_constraintBottom_toTopOf="@id/alarm_settings"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_monday"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/dates_is_selected"
+                    android:gravity="center"
+                    android:text="П"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_tuesday"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/dates_is_selected"
+                    android:gravity="center"
+                    android:text="В"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tv_wednesday"
+                    app:layout_constraintStart_toEndOf="@id/tv_monday"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_wednesday"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/dates_is_selected"
+                    android:gravity="center"
+                    android:text="С"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tv_thursday"
+                    app:layout_constraintStart_toEndOf="@id/tv_tuesday"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_thursday"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/dates_is_selected"
+                    android:gravity="center"
+                    android:text="Ч"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tv_friday"
+                    app:layout_constraintStart_toEndOf="@id/tv_wednesday"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_friday"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/dates_is_selected"
+                    android:gravity="center"
+                    android:text="П"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tv_saturday"
+                    app:layout_constraintStart_toEndOf="@id/tv_thursday"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_saturday"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/dates_is_selected"
+                    android:gravity="center"
+                    android:text="С"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tv_sunday"
+                    app:layout_constraintStart_toEndOf="@id/tv_friday"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_sunday"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/dates_is_selected"
+                    android:gravity="center"
+                    android:text="В"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/alarm_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dates_layout">
+
+                <TextView
+                    android:id="@+id/alarm_date_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_alarm"
+                    android:drawableEnd="@drawable/ic_add"
+                    android:drawablePadding="16dp"
+                    android:focusable="true"
+                    android:foreground="?selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="12dp"
+                    android:selectable="true"
+                    android:text="Приостаню. буд."
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:drawableTint="@color/icon_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/alarm_ringtone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_notification"
+                    android:drawablePadding="16dp"
+                    android:focusable="true"
+                    android:foreground="?selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="12dp"
+                    android:selectable="true"
+                    android:text="Dynamic_Weather"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:drawableTint="@color/icon_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/alarm_date_setting" />
+
+                <TextView
+                    android:id="@+id/alarm_vibrate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_vibration"
+                    android:drawableEnd="@drawable/vibrate_selected"
+                    android:drawablePadding="16dp"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="12dp"
+                    android:text="Вибросигнал"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/alarm_ringtone" />
+
+                <TextView
+                    android:id="@+id/alarm_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_delete"
+                    android:drawablePadding="16dp"
+                    android:focusable="true"
+                    android:foreground="?selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="12dp"
+                    android:selectable="true"
+                    android:text="Удалить"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:drawableTint="@color/icon_color"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/alarm_vibrate" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </net.cachapa.expandablelayout.ExpandableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
